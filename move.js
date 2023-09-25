@@ -1,3 +1,4 @@
+// allows us to go back and use any image we want to move or switch characters
 function move(element) {
     element.style.position = 'fixed'
 
@@ -13,7 +14,7 @@ function move(element) {
     }
 
   
-
+// default movement
 function moveWithArrowKeys(left, bottom, callback){
     let direction = null;
     let x = left;
@@ -21,7 +22,7 @@ function moveWithArrowKeys(left, bottom, callback){
 
     element.style.left = x + 'px'
     element.style.bottom = y + 'px'
-    
+    // function allows us to move a certain distance everytime a key is pressed
     function moveCharacter(){ 
         if(direction === 'west'){
             x-=1
@@ -40,7 +41,7 @@ function moveWithArrowKeys(left, bottom, callback){
     }
     
     setInterval(moveCharacter, 1)
-    
+    // if i click a certain key that will be the direction it takes me 
     document.addEventListener('keydown', function(e){
         if(e.repeat) return;
     
@@ -58,12 +59,13 @@ function moveWithArrowKeys(left, bottom, callback){
         }
         callback(direction)
     })
-    
+    // allows me to stop moving when i take my finger off one of the arrow keys
     document.addEventListener('keyup', function(e){
         direction = null
         callback(direction)
     })
 }
+// repeats the whole process by returning to the first function
 return {
     to: moveToCoordinates,
     withArrowKeys: moveWithArrowKeys

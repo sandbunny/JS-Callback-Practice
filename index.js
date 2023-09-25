@@ -1,8 +1,8 @@
 const inventory = newInventory()
 move(inventory).to(0, 0)
-
+// default character image
 const character = newImage('assets/green-character/static.gif')
-
+// changes the characters image when walking 
 function handleDirectionChange(direction){
     if(direction === null){
         character.src = 'assets/green-character/static.gif'
@@ -20,11 +20,11 @@ function handleDirectionChange(direction){
         character.src = 'assets/green-character/south.gif'
     }
 }
-
+// allows me to move my character using arrow keys
 move(character).withArrowKeys(100, 250, handleDirectionChange)
 
 
-                              
+  //assets       
 move(newImage('assets/tree.png')).to(200, 450)
 move(newImage('assets/pillar.png')).to(350, 250)
 move(newImage('assets/pine-tree.png')).to(450, 350)
